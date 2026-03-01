@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    // Aquí vanmétodos personalizados,
+    // Aquí van métodos personalizados,
 
     //Buscar por email (para login)
     Optional<User> findByUsername(String email);
