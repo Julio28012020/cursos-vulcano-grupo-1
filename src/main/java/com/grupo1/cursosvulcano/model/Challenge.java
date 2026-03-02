@@ -17,25 +17,35 @@ public class Challenge {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title; // Título del reto (ej: "Suma de Arreglos")
-    
-    @Column(length = 1000)
-    private String description; // Explicación de qué debe hacer el alumno
+    private String title;
 
-    private String difficulty; // Nivel: "Easy", "Medium", "Hard"
+    @Column(length = 1000)
+    private String description;
+
+    private String difficulty; // "Easy", "Medium", "Hard"
 
     @Column(columnDefinition = "TEXT")
-    private String baseCode; // El código inicial que se le entrega al usuario
+    private String baseCode;
 
-    // Relación: Un reto está presente en muchos registros de progreso
     @OneToMany(mappedBy = "challenge")
     private List<AcademicProgress> progressRecords;
 
-    // Getters y Setters
+    // ✅ Getters y Setters COMPLETOS
+    public Long getId() { return id; }
+
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
 
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public String getDifficulty() { return difficulty; }
+    public void setDifficulty(String difficulty) { this.difficulty = difficulty; }
+
     public String getBaseCode() { return baseCode; }
     public void setBaseCode(String baseCode) { this.baseCode = baseCode; }
+
+    public List<AcademicProgress> getProgressRecords() { return progressRecords; }
+    public void setProgressRecords(List<AcademicProgress> progressRecords) { this.progressRecords = progressRecords; }
 
 }
