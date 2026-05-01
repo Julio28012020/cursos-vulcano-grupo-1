@@ -19,6 +19,10 @@ public class ReviewService {
         return reviewRepository.findAll();
     }
 
+    public Review getReviewById(Long id) {
+        return reviewRepository.findById(id).orElse(null);
+    }
+
     public Review saveReview(Review review) {
         return reviewRepository.save(review);
     }
